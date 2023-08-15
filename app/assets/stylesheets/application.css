@@ -14,12 +14,9 @@
  *= require_self
  */
 
- body{
-    background-color: black;
- }
+ 
  .encabezado {
-    margin-left: 80px;
-    color: red;
+    margin-left: 50px;
  }
 
  .castillo-image {
@@ -27,11 +24,23 @@
  }
 
  .datos {
-    color: red;
+   
     margin-left: 300px;
  }
 
 .titulo-personajes {
-    color: red;
+    
     margin-left: 350px;
+}
+
+.busqueda {
+    margin-left: 320px;
+}
+
+.datos-busqueda {
+    margin-left: 300px;
+}
+
+.btn {
+    margin-left: 480px;
 }

@@ -1,0 +1,16 @@
+<h1 class="busqueda">Resultados de la Búsqueda</h1>
+<% if @characters.present? %>
+  <ul class="datos-busqueda">
+    <% @characters.each do |character| %>
+      <div class="datos-busqueda1">
+        <strong>Nombre:</strong> <%= character.name %>,&nbsp;
+        <strong>Locación:</strong> <%= character.location %>,&nbsp;
+        <strong>Casa:</strong> <%= character.house %>
+      </div>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No se encontraron personajes para la casa seleccionada.</p>
+<% end %>
+
+<%= link_to "Volver", :back, class: "btn btn" %>

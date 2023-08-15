@@ -5,9 +5,26 @@
   <% @characters.each do |character| %>
     <div class="datos">
       <strong>Nombre:</strong> <%= character.name %>,&nbsp;
-      <strong>Locación:</strong> <%= character.location %>,&nbsp;
+      <strong>Locacion:</strong> <%= character.location %>,&nbsp;
       <strong>Casa:</strong> <%= character.house %>
     </div>
   <% end %>
 </ul>
 
+<%= form_tag(buscar_path, method: :get, class: "buscar-form") do %>
+  <%= label_tag :casa, "Seleccionar Casa:" %>
+  <%= select_tag :casa, options_for_select(Character.pluck(:house).uniq.compact), prompt: "Todas las casas" %>
+  <%= submit_tag "Buscar", class: "buscar-button" %>
+<% end %>
+
+<%= form_tag(buscar_path, method: :get, class: "buscar-form") do %>
+  <%= label_tag :locacion, "Seleccionar locacion:" %>
+  <%= select_tag :casa, options_for_select(Character.pluck(:location).uniq.compact), prompt: "Todas las locaciones" %>
+  <%= submit_tag "Buscar", class: "buscar-button" %>
+<% end %>
+
+<%= form_tag(buscar_path, method: :get, class: "buscar-form") do %>
+  <%= label_tag :nombre, "Seleccionar nombre:" %>
+  <%= select_tag :nombre, options_for_select(Character.pluck(:name).uniq.compact), prompt: "Todos" %>
+  <%= submit_tag "Buscar", class: "buscar-button" %>
+<% end %>
