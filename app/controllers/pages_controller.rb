@@ -2,8 +2,6 @@ class PagesController < ApplicationController
   def index
     @characters = Character.all
   end
-  def buscar 
-    def buscar
         def buscar
           case params[:tipo_busqueda]
           when 'casa'
@@ -16,6 +14,4 @@ class PagesController < ApplicationController
             @characters = Character.all
           end
         end        
-    end
-  end
 end
