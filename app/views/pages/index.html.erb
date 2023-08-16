@@ -14,7 +14,7 @@
 <%= form_tag(buscar_path, method: :get, class: "buscar-form") do %>
   <%= label_tag :casa, "Seleccionar Casa:" %>
   <%= select_tag :casa, options_for_select(Character.pluck(:house).uniq.compact), prompt: "Todas las casas" %>
-  <%= submit_tag "Buscar", class: "buscar-button" %>
+  <%= submit_tag "Buscar", class: "buscar-button-dark" %>
 <% end %>
 
 <%= form_tag(buscar_path, method: :get, class: "buscar-form") do %>
