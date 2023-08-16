@@ -16,6 +16,13 @@
   <%= label_tag :nombre, "Seleccionar Casa:" %>
   <%= select_tag :nombre, options_for_select(Character.pluck(:name).uniq.compact), prompt: "Todas las casas" %>
   <%= submit_tag "Buscar", class: "buscar-button-dark" %>
+  <% end %>
+
+<%= form_tag(buscar_path, method: :get, class: "buscar-form") do %>
+  <%= hidden_field_tag :tipo_busqueda, "locacion" %>
+  <%= label_tag :locacion, "Seleccionar Casa:" %>
+  <%= select_tag :locacion, options_for_select(Character.pluck(:location).uniq.compact), prompt: "Todas las casas" %>
+  <%= submit_tag "Buscar", class: "buscar-button-dark" %>
 <% end %>
 
 <%= form_tag(buscar_path, method: :get, class: "buscar-form") do %>
@@ -25,12 +32,7 @@
   <%= submit_tag "Buscar", class: "buscar-button-dark" %>
 <% end %>
 
-<%= form_tag(buscar_path, method: :get, class: "buscar-form") do %>
-  <%= hidden_field_tag :tipo_busqueda, "locacion" %>
-  <%= label_tag :locacion, "Seleccionar Casa:" %>
-  <%= select_tag :locacion, options_for_select(Character.pluck(:location).uniq.compact), prompt: "Todas las casas" %>
-  <%= submit_tag "Buscar", class: "buscar-button-dark" %>
-<% end %>
+
 
 
 
