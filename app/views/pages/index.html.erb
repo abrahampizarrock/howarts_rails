@@ -1,36 +1,42 @@
 
 <ul>
-
-  <h1 class="titulo-personajes">Personajes de Harry Potter</h1>
-  <% @characters.each do |character| %>
-    <div class="datos">
-      <strong>Nombre:</strong> <%= character.name %>,&nbsp;
-      <strong>Locacion:</strong> <%= character.location %>,&nbsp;
-      <strong>Casa:</strong> <%= character.house %>
-    </div>
-  <% end %>
+  <div class="col-md-6">
+    <h1 class="titulo-personajes">Personajes de Harry Potter</h1>
+    <% @characters.each do |character| %>
+      <div class="datos">
+        <strong>Nombre:</strong> <%= character.name %>,&nbsp;
+        <strong>Locacion:</strong> <%= character.location %>,&nbsp;
+        <strong>Casa:</strong> <%= character.house %>
+      </div>
+    <% end %>
+  </div>
 </ul>
+<div class="col-md-6">
+  <%= form_tag(buscar_path, method: :get, class: "buscar-form") do %>
+    <%= hidden_field_tag :tipo_busqueda, "nombre" %>
+    <%= label_tag :nombre, "Seleccionar Nombre:" %>
+    <%= select_tag :nombre, options_for_select(Character.pluck(:name).uniq.compact), prompt: "Todas los nombres" %>
+    <%= submit_tag "Buscar", class: "buscar-button-dark" %>
+    <% end %>
+</div>
 
-<%= form_tag(buscar_path, method: :get, class: "buscar-form") do %>
-  <%= hidden_field_tag :tipo_busqueda, "nombre" %>
-  <%= label_tag :nombre, "Seleccionar Nombre:" %>
-  <%= select_tag :nombre, options_for_select(Character.pluck(:name).uniq.compact), prompt: "Todas los nombres" %>
-  <%= submit_tag "Buscar", class: "buscar-button-dark" %>
+<div class="col-md-6">
+  <%= form_tag(buscar_path, method: :get, class: "buscar-form") do %>
+    <%= hidden_field_tag :tipo_busqueda, "locacion" %>
+    <%= label_tag :locacion, "Seleccionar Locacion:" %>
+    <%= select_tag :locacion, options_for_select(Character.pluck(:location).uniq.compact), prompt: "Todas las locaciones" %>
+    <%= submit_tag "Buscar", class: "buscar-button-dark" %>
   <% end %>
+</div>
 
-<%= form_tag(buscar_path, method: :get, class: "buscar-form") do %>
-  <%= hidden_field_tag :tipo_busqueda, "locacion" %>
-  <%= label_tag :locacion, "Seleccionar Locacion:" %>
-  <%= select_tag :locacion, options_for_select(Character.pluck(:location).uniq.compact), prompt: "Todas las locaciones" %>
-  <%= submit_tag "Buscar", class: "buscar-button-dark" %>
-<% end %>
-
-<%= form_tag(buscar_path, method: :get, class: "buscar-form") do %>
-  <%= hidden_field_tag :tipo_busqueda, "casa" %>
-  <%= label_tag :casa, "Seleccionar Casa:" %>
-  <%= select_tag :casa, options_for_select(Character.pluck(:house).uniq.compact), prompt: "Todas las casas" %>
-  <%= submit_tag "Buscar", class: "buscar-button-dark" %>
-<% end %>
+<div class="col-md-6">
+  <%= form_tag(buscar_path, method: :get, class: "buscar-form") do %>
+    <%= hidden_field_tag :tipo_busqueda, "casa" %>
+    <%= label_tag :casa, "Seleccionar Casa:" %>
+    <%= select_tag :casa, options_for_select(Character.pluck(:house).uniq.compact), prompt: "Todas las casas" %>
+    <%= submit_tag "Buscar", class: "buscar-button-dark" %>
+  <% end %>
+</div>
 
 
 
